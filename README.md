@@ -2,8 +2,7 @@
 
 
 
-To use application make the following steps
-in the root project folder:
+To use application make the following steps:
 1. clone this repository
 2. `cd` to project root folder
 2. `mvn clean package`
