@@ -7,7 +7,19 @@ abstract public class FieldOfRecord {
 
     private String id;
 
-    public FieldOfRecord(String id) {
+    protected FieldOfRecord() {
+    }
+
+    protected FieldOfRecord(String id) {
+        this.id = id;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
         this.id = id;
     }
 

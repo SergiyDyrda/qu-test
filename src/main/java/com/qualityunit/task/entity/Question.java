@@ -14,6 +14,24 @@ public class Question extends FieldOfRecord {
         this.subcategoryId = subcategoryId;
     }
 
+    public Question() {
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getSubcategoryId() {
+        return subcategoryId;
+    }
+
+    public void setSubcategoryId(String subcategoryId) {
+        this.subcategoryId = subcategoryId;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -23,8 +41,8 @@ public class Question extends FieldOfRecord {
 
         Question question = (Question) o;
 
-        return categoryId == null || categoryId.equals(question.categoryId)
-                && subcategoryId == null || subcategoryId.equals(question.subcategoryId);
+        return (categoryId == null || categoryId.equals(question.categoryId))
+                && (subcategoryId == null || subcategoryId.equals(question.subcategoryId));
     }
 
     public static class AnyQuestion extends Question {
@@ -35,7 +53,7 @@ public class Question extends FieldOfRecord {
 
         @Override
         public boolean equals(Object o) {
-            return o != null;
+            return o != null && o instanceof Question;
         }
     }
 }

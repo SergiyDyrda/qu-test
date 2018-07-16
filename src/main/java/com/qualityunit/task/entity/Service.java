@@ -12,6 +12,18 @@ public class Service extends FieldOfRecord {
         this.variationId = variationId;
     }
 
+    public Service() {
+
+    }
+
+    public String getVariationId() {
+        return variationId;
+    }
+
+    public void setVariationId(String variationId) {
+        this.variationId = variationId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,7 +43,7 @@ public class Service extends FieldOfRecord {
 
         @Override
         public boolean equals(Object o) {
-            return o != null;
+            return o != null && o instanceof Service;
         }
 
     }

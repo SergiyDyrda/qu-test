@@ -4,7 +4,6 @@ import com.qualityunit.task.entity.Query;
 import com.qualityunit.task.entity.WaitTimeLine;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.qualityunit.task.util.DateUtil.isBetween;
 
@@ -30,15 +29,11 @@ public class QueryAnalyzer extends RecordsAnalyzer<Query, WaitTimeLine> {
         this(DEFAULT_QUERY_MATCHER);
     }
 
-    @Override
-    public List<WaitTimeLine> getSuitableRecords(Query query, List<WaitTimeLine> records, RecordMatcher<Query, WaitTimeLine> matcher) {
-        return records.stream().filter(wtl -> matcher.match(query, wtl))
-                .collect(Collectors.toList());
+    public Double getAverageWaitingTime(Query query, List<WaitTimeLine> records) {
+        return getStatisticsByField(query, records, WaitTimeLine::getWaitingTime)
+                .getAverage();
     }
 
 
-    @Override
-    public List<WaitTimeLine> getSuitableRecords(Query query, List<WaitTimeLine> waitTimeLines) {
-        return getSuitableRecords(query, waitTimeLines, DEFAULT_QUERY_MATCHER);
-    }
+
 }
